@@ -1,5 +1,6 @@
 package com.ruvalcaba.restapi.service.impl;
 
+import com.ruvalcaba.restapi.exception.CloudVendorNotFoundException;
 import com.ruvalcaba.restapi.model.CloudVendor;
 import com.ruvalcaba.restapi.repository.CloudVendorRepository;
 import com.ruvalcaba.restapi.service.CloudVendorService;
@@ -19,10 +20,12 @@ public class CloudVendorServiceImpl implements CloudVendorService {
     @Override
     public List<CloudVendor> getAllCloudVendors() {
         return cloudVendorRepository.findAll();
-    } 
+    }
 
     @Override
     public CloudVendor getCloudVendor(Integer id) {
+        if(cloudVendorRepository.findById(id).isEmpty())
+            throw new CloudVendorNotFoundException("No vendor with such ID exists");
         return cloudVendorRepository.findById(id).get();
     }
 
