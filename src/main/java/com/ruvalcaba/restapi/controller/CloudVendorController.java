@@ -1,8 +1,10 @@
 package com.ruvalcaba.restapi.controller;
 
 import com.ruvalcaba.restapi.model.CloudVendor;
+import com.ruvalcaba.restapi.response.ResponseHandler;
 import com.ruvalcaba.restapi.service.CloudVendorService;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,10 +20,10 @@ public class CloudVendorController {
     }
 
     // Get details of a specific vendor
-    @ResponseStatus(value = HttpStatus.OK)
     @GetMapping("{id}")
-    public CloudVendor getCloudVendorDetails(@PathVariable Integer id){
-        return cloudVendorService.getCloudVendor(id);
+    public ResponseEntity<Object> getCloudVendor(@PathVariable Integer id){
+        return ResponseHandler.responseBuilder("Details of vendor with id=" + id,
+                HttpStatus.OK, cloudVendorService.getCloudVendor(id));
     }
 
     // Get a list of all vendors
