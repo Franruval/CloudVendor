@@ -19,7 +19,7 @@ public class CloudVendorServiceImpl implements CloudVendorService {
     @Override
     public List<CloudVendor> getAllCloudVendors() {
         return cloudVendorRepository.findAll();
-    }
+    } 
 
     @Override
     public CloudVendor getCloudVendor(Integer id) {

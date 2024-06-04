@@ -39,6 +39,7 @@ public class CloudVendorController {
         return "Created successfully";
     }
 
+    // Update information of a vendor
     @ResponseStatus(value = HttpStatus.OK)
     @PutMapping("update")
     public String updateCloudVendor(@RequestBody CloudVendor cloudVendor){
@@ -46,6 +47,7 @@ public class CloudVendorController {
         return "Vendor " + cloudVendor.getId() + " updated successfully";
     }
 
+    // Delete the entry of a vendor via ID
     @ResponseStatus(value = HttpStatus.OK)
     @DeleteMapping("delete/{id}")
     public String deleteCloudVendor(@PathVariable Integer id){
