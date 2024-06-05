@@ -1,4 +1,4 @@
-package com.ruvalcaba.restapi.restapi;
+package com.ruvalcaba.restapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

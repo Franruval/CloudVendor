@@ -43,6 +43,8 @@ public class CloudVendorServiceImpl implements CloudVendorService {
 
     @Override
     public String deleteCloudVendor(Integer id) {
+        if(cloudVendorRepository.findById(id).isEmpty())
+            throw new CloudVendorNotFoundException("No vendor with such ID exists");
         cloudVendorRepository.deleteById(id);
         return "Vendor deleted";
     }
