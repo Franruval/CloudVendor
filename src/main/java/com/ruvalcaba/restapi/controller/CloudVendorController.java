@@ -27,10 +27,10 @@ public class CloudVendorController {
     }
 
     // Get a list of all vendors
-    @ResponseStatus(value = HttpStatus.OK)
     @GetMapping("all")
-    public List<CloudVendor> getAllCloudVendorDetails(){
-        return cloudVendorService.getAllCloudVendors();
+    public ResponseEntity<Object> getAllCloudVendors(){
+        return ResponseHandler.responseBuilder("Details of all existing vendors",
+                HttpStatus.OK, cloudVendorService.getAllCloudVendors());
     }
 
     // Create a new vendor
@@ -41,18 +41,16 @@ public class CloudVendorController {
     }
 
     // Update information of a vendor
-    @ResponseStatus(value = HttpStatus.OK)
     @PutMapping("update")
-    public String updateCloudVendor(@RequestBody CloudVendor cloudVendor){
+    public ResponseEntity<Object> updateCloudVendor(@RequestBody CloudVendor cloudVendor){
         cloudVendorService.updateCloudVendor(cloudVendor);
-        return "Vendor " + cloudVendor.getId() + " updated successfully";
+        return ResponseHandler.responseBuilder("Vendor updated",HttpStatus.OK);
     }
 
     // Delete the entry of a vendor via ID
-    @ResponseStatus(value = HttpStatus.OK)
     @DeleteMapping("delete/{id}")
-    public String deleteCloudVendor(@PathVariable Integer id){
+    public ResponseEntity<Object> deleteCloudVendor(@PathVariable Integer id){
         cloudVendorService.deleteCloudVendor(id);
-        return "Vendor deleted successfully";
+        return ResponseHandler.responseBuilder("Vendor deleted",HttpStatus.OK);
     }
 }
