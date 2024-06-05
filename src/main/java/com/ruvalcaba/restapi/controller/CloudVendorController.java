@@ -34,11 +34,10 @@ public class CloudVendorController {
     }
 
     // Create a new vendor
-    @ResponseStatus(value = HttpStatus.CREATED)
     @PostMapping("create")
-    public String createCloudVendor(@RequestBody CloudVendor cloudVendor){
+    public ResponseEntity<Object> createCloudVendor(@RequestBody CloudVendor cloudVendor){
         cloudVendorService.createCloudVendor(cloudVendor);
-        return "Created successfully";
+        return ResponseHandler.responseBuilder("Vendor created",HttpStatus.CREATED);
     }
 
     // Update information of a vendor
