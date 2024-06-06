@@ -31,7 +31,7 @@ public class CloudVendorRepositoryTest{
         cloudVendorRepository.deleteAll();
     }
 
-    // Test for success
+    // Test for vendor found
     @Test
     void testFindByName_Found(){
         List<CloudVendor> vendorList = cloudVendorRepository.findByName("Doña Mary");
@@ -39,7 +39,7 @@ public class CloudVendorRepositoryTest{
         assertThat(vendorList.get(0).getName()).isEqualTo(cloudVendor.getName());
     }
 
-    // Test for failure
+    // Test for vendor not found
     @Test
     void testFindByName_NotFound(){
         List<CloudVendor> vendorList = cloudVendorRepository.findByName("Vega");

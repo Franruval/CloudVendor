@@ -20,10 +20,17 @@ public class CloudVendorController {
     }
 
     // Get details of a specific vendor
-    @GetMapping("{id}")
+    @GetMapping("id/{id}")
     public ResponseEntity<Object> getCloudVendor(@PathVariable Integer id){
         return ResponseHandler.responseBuilder("Details of vendor with id=" + id,
                 HttpStatus.OK, cloudVendorService.getCloudVendor(id));
+    }
+
+    // Get all vendors filtered by name
+    @GetMapping("name/{name}")
+    public ResponseEntity<Object> getCloudVendorByName(@PathVariable String name){
+        return ResponseHandler.responseBuilder("Details of vendors with name=" + name,HttpStatus.OK,
+                cloudVendorService.getCloudVendorByName(name));
     }
 
     // Get a list of all vendors
@@ -53,4 +60,6 @@ public class CloudVendorController {
         cloudVendorService.deleteCloudVendor(id);
         return ResponseHandler.responseBuilder("Vendor deleted",HttpStatus.OK);
     }
+
+
 }

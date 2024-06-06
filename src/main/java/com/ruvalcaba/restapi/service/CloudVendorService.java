@@ -11,4 +11,5 @@ public interface CloudVendorService {
     public String createCloudVendor(CloudVendor cloudVendor);
     public String updateCloudVendor(CloudVendor cloudVendor);
     public String deleteCloudVendor(Integer id);
+    public List<CloudVendor> getCloudVendorByName(String name);
 }
