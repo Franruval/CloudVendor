@@ -4,5 +4,19 @@ spring:
     username: root
     password: 1337950
 
-
   jpa.hibernate.ddl_auto: create
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health, beans, metrics"
+      base-path: "/management-dashboard"
+  endpoint:
+    health:
+      show-details: always
+
+#Configuration to check the health of another service
+#sampleServiceName:
+  #port: 8081
+  #address: 127.0.0.1
