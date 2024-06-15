@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.ruvalcaba.restapi.model.CloudVendor;
-import com.ruvalcaba.restapi.repository.CloudVendorRepository;
 import com.ruvalcaba.restapi.service.CloudVendorService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
