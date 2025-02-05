@@ -4,7 +4,7 @@ spring:
     username: root
     password: 1234
 
-  jpa.hibernate.ddl_auto: create
+  jpa.hibernate.ddl_auto: update
 
 management:
   endpoints:
